@@ -2,3 +2,10 @@ node_modules/
 lib/
 *.tgz
 .npm-cache/
+test/.client.test.generated.mjs
+.agents/
+WORKSPACE.md
+.env
+.env.*
+!.env.example
+.DS_Store
