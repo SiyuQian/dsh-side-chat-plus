@@ -2,7 +2,15 @@
 
 Target SDK: installed @deepseek-ai/dsh 0.2.2-rc.1 and matching SDK packages. Node 24.22.1.
 
-## Final local verification
+## Scoped npm release preparation — 2026-11-09
+
+- Package identity: `@siyuqian/dsh-side-chat-plus@0.1.0`; original row, RPC and storage identities retained.
+- `npm run check`: PASS — 59 core/artifact tests plus 20 React/jsdom UI tests; Host/client build passed. The new built-artifact test first failed on top-level ESM syntax, then passed after the Client build was changed to DSH's lazy ModuleLoader format. The Host remains ESM.
+- JavaScript syntax checks and `git diff --check`: PASS.
+- English/Chinese inventory metadata, original SVG and this verification guide are included in the distribution allowlist.
+- Publication, scope ownership, live installation, rendered UI and native version checks remain unverified. npm authentication returned E401. Do not infer live acceptance from these local checks.
+
+## Original local verification — 2026-11-08
 
 - `npm run check`: PASS — 58 Node core/adapter/security/lifecycle/persistence tests + 20 React/jsdom UI tests; host/client build passed.
 - `git diff --check`: PASS.

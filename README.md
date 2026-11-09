@@ -31,6 +31,12 @@
 5. 每段讨论自动保存。关闭标签会尝试停止运行；之后在相同主会话的历史列表中恢复。
 6. 将需要的回答加入结论编辑区，确认后点“追加到主会话草稿”，由你检查草稿并手动发送；原草稿会保留。输入框忙碌时可以复制结论。
 
+## npm 安装与原生更新检查
+
+正式 npm 包名为 **`@siyuqian/dsh-side-chat-plus`**。发布后，在 DSH 的插件管理中添加该名称（或 `@siyuqian/dsh-side-chat-plus@<version>`），使用公共 npm registry `https://registry.npmjs.org/`。不要安装未加 scope 的 npm 同名包 `dsh-side-chat-plus`：它属于其他发布者。
+
+DSH 原生 npm 版本检查仅用于从 registry 安装的依赖；本地目录、Git URL 和 tarball 安装仍可用于开发，但不提供相同的更新入口。旧包名迁移、禁用状态保留、发布准备与验收见 [RELEASING.md](RELEASING.md)。按安装结果决定是否重启，不绕过兼容性检查。
+
 ## 开发与安装
 
 目标运行时为 **DSH 0.2.2-rc.1 / Node 24+**，SDK peer dependencies 精确锁定该预发布版本。不对其他版本宣称已验证；不要绕过 DSH 兼容性检查。
@@ -48,7 +54,7 @@ npm pack
 在 DSH 的插件管理中安装本地打包文件，或使用官方 CLI（安装会修改当前 profile，先确认目标 profile）：
 
 ```sh
-dsh plugin --profile desktop add /absolute/path/dsh-side-chat-plus-0.1.0.tgz
+dsh plugin --profile desktop add /absolute/path/siyuqian-dsh-side-chat-plus-0.1.0.tgz
 ```
 
 这里的命令仅供用户主动安装。开发交付不会自动安装、修改 profile、刷新你的主会话或启动替代 Web 服务。
@@ -73,8 +79,8 @@ HTTP 面仅允许同源、JSON、loopback 请求，拒绝跨端口 Origin 与非
 
 ## 验证状态
 
-实现包含服务持久化/并发测试、HTTP 信任边界测试、宿主注册清理测试、适配器的模型/安全工具边界测试和 React/jsdom 交互测试。当前本地验证为 **78 项测试通过**，详情与安装后验收清单见 [VERIFICATION.md](VERIFICATION.md)。
+实现包含服务持久化/并发测试、HTTP 信任边界测试、宿主注册清理测试、适配器的模型/安全工具边界测试和 React/jsdom 交互测试。当前本地验证为 **79 项测试通过**（59 项核心/构建产物测试和 20 项 React/jsdom 测试），详情与安装后验收清单见 [VERIFICATION.md](VERIFICATION.md)。
 
 当前 GUI 需要认证；未自动安装到你的 profile，因此**不能把单元测试通过视为当前 GUI 中的真实模型、真实文件权限与端到端侧聊都已验证**。首次安装后应先用无敏感内容的测试工作区验收：轻聊无工具、只读写入被拒、切换主会话不串线、关闭停止、刷新恢复、结论追加不覆盖草稿。
 
-参考项目及许可证说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+参考项目及许可证说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。插件管理图标 `icon.svg` 为原创作品，按本项目 MIT 许可证分发；现有运行时界面与文本保持不变。
