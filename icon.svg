@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Side discussion">
+  <rect width="64" height="64" rx="14" fill="#3755a5"/>
+  <g fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 16h36v26H29l-10 8v-8h-5zM25 17v24M33 25h10M33 33h7"/>
+  </g>
+</svg>

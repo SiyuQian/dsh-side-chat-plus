@@ -1,11 +1,12 @@
 {
-  "name": "dsh-side-chat-plus",
+  "name": "@siyuqian/dsh-side-chat-plus",
+  "publishConfig": {"access": "public", "registry": "https://registry.npmjs.org/"},
   "version": "0.1.0",
   "description": "Dual-mode DSH side discussions: tool-free chat and safely scoped research Agents.",
   "type": "module",
   "main": "lib/index.js",
-  "exports": {".": "./lib/index.js", "./client": "./lib/client.js", "./package.json": "./package.json"},
-  "files": ["lib", "cordis.patch.yml", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"],
+  "exports": {".": "./lib/index.js", "./client": "./lib/client.js", "./package.json": "./package.json", "./locale/*.json": "./locale/*.json", "./icon": "./icon.svg"},
+  "files": ["lib", "locale/*.json", "icon.svg", "RELEASING.md", "VERIFICATION.md", "cordis.patch.yml", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"],
   "scripts": {"build": "node scripts/build.mjs", "test:core": "node --test test/*.test.mjs", "test:client": "esbuild test/client.test.jsx --bundle --platform=node --format=esm --packages=external --loader:.css=text --outfile=test/.client.test.generated.mjs && node --test test/.client.test.generated.mjs", "test": "npm run test:core && npm run test:client", "check": "npm test && npm run build", "prepack": "npm run build"},
   "engines": {"node": ">=24", "dsh": ">=0.2.2-rc.1 <0.2.3-0"},
   "peerDependencies": {
